@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react'
+import { type FC, useState } from 'react'
 
 import classNames from 'classnames'
-import { Outlet } from 'react-router-dom'
-import { Container, Sidebar, Sidenav, Content, Nav, DOMHelper } from 'rsuite'
+import { Outlet, useNavigate } from 'react-router-dom'
+import { Container, Sidenav, Content, Nav, Sidebar } from 'rsuite'
 
 import { Brand } from '../../Brand'
 import { Header } from '../../Header'
-import { NavLink } from '../../NavLink'
 
 import { NavToggle } from './NavToggle'
 import './frame.less'
-
-const { getHeight, on } = DOMHelper
 
 export interface NavItemData {
   eventKey: string
@@ -22,44 +19,31 @@ export interface NavItemData {
   children?: NavItemData[]
 }
 
-export interface FrameProps {
-  navs?: NavItemData[]
-  children?: React.ReactNode
-}
+const nav = [
+  {
+    id: 0,
+    link: '/keys',
+    label: 'Ключи',
+  },
+  {
+    id: 1,
+    link: '/referrals',
+    label: 'Рефералы',
+  },
+  {
+    id: 2,
+    link: '/purchases',
+    label: 'История покупок',
+  },
+]
 
-const NavItem = (props: any) => {
-  const { title, eventKey, ...rest } = props
-  return (
-    <Nav.Item eventKey={eventKey} as={NavLink} {...rest}>
-      {title}
-    </Nav.Item>
-  )
-}
-
-export const Frame = (props: FrameProps) => {
-  const { navs } = props
+export const Frame: FC = () => {
   const [expand, setExpand] = useState(true)
-  const [windowHeight, setWindowHeight] = useState(getHeight(window))
-
-  useEffect(() => {
-    setWindowHeight(getHeight(window))
-    const resizeListenner = on(window, 'resize', () =>
-      setWindowHeight(getHeight(window))
-    )
-
-    return () => {
-      resizeListenner.off()
-    }
-  }, [])
+  const navigate = useNavigate()
 
   const containerClasses = classNames('page-container', {
     'container-full': !expand,
   })
-
-  const navBodyStyle: React.CSSProperties = expand
-    ? { height: windowHeight - 112, overflow: 'auto' }
-    : {}
-
   return (
     <Container className='frame'>
       <Sidebar
@@ -70,40 +54,14 @@ export const Frame = (props: FrameProps) => {
         <Sidenav.Header>
           <Brand />
         </Sidenav.Header>
-        <Sidenav
-          expanded={expand}
-          appearance='subtle'
-          defaultOpenKeys={['2', '3']}
-        >
-          <Sidenav.Body style={navBodyStyle}>
-            <Nav>
-              {navs?.map(item => {
-                const { children, ...rest } = item
-                if (children) {
-                  return (
-                    <Nav.Menu
-                      key={item.eventKey}
-                      placement='rightStart'
-                      trigger='hover'
-                      {...rest}
-                    >
-                      {children.map(child => {
-                        return <NavItem key={child.eventKey} {...child} />
-                      })}
-                    </Nav.Menu>
-                  )
-                }
-
-                if (rest.target === '_blank') {
-                  return (
-                    <Nav.Item key={item.eventKey} {...rest}>
-                      {item.title}
-                    </Nav.Item>
-                  )
-                }
-
-                return <NavItem key={rest.eventKey} {...rest} />
-              })}
+        <Sidenav appearance='subtle'>
+          <Sidenav.Body>
+            <Nav onSelect={navigate}>
+              {nav.map(({ id, link, label }) => (
+                <Nav.Item key={id} eventKey={link}>
+                  {label}
+                </Nav.Item>
+              ))}
             </Nav>
           </Sidenav.Body>
         </Sidenav>

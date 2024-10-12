@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { ErrorPage } from '@shared/components/ErrorPage'
 import { Frame } from '@shared/components/Frame'
+import { UserCabinetLayout } from '@shared/components/UserCabinetLayout'
 
 // import { App } from './App'
 
@@ -34,40 +35,40 @@ import { Frame } from '@shared/components/Frame'
 //   ],
 // }
 
-// const USER_CABINET_ROUTES = {
-//   path: '/*',
-//   element: <UserCabinetLayout />,
-//   children: [
-//     {
-//       path: 'devices',
-//       async lazy() {
-//         const { Devices } = await import('@pages/devices')
-//         return { Component: Devices }
-//       },
-//     },
-//     {
-//       path: 'referrals',
-//       async lazy() {
-//         const { Referrals } = await import('@pages/referrals')
-//         return { Component: Referrals }
-//       },
-//     },
-//     {
-//       path: 'tariffs',
-//       async lazy() {
-//         const { Referrals } = await import('@pages/referrals')
-//         return { Component: Referrals }
-//       },
-//     },
-//     {
-//       path: 'purchases',
-//       async lazy() {
-//         const { Purchases } = await import('@pages/purchases')
-//         return { Component: Purchases }
-//       },
-//     },
-//   ],
-// }
+const USER_CABINET_ROUTES = {
+  path: '/*',
+  element: <UserCabinetLayout />,
+  children: [
+    {
+      path: 'keys',
+      async lazy() {
+        const { Keys } = await import('@pages/keys')
+        return { Component: Keys }
+      },
+    },
+    {
+      path: 'referrals',
+      async lazy() {
+        const { Referrals } = await import('@pages/referrals')
+        return { Component: Referrals }
+      },
+    },
+    {
+      path: 'tariffs',
+      async lazy() {
+        const { Referrals } = await import('@pages/referrals')
+        return { Component: Referrals }
+      },
+    },
+    {
+      path: 'purchases',
+      async lazy() {
+        const { Purchases } = await import('@pages/purchases')
+        return { Component: Purchases }
+      },
+    },
+  ],
+}
 
 const ROUTES = [
   {
@@ -79,7 +80,7 @@ const ROUTES = [
       //   element: <Navigate to={true ? 'devices' : 'login'} replace />,
       // },
       // AUTH_ROUTES,
-      // USER_CABINET_ROUTES,
+      USER_CABINET_ROUTES,
       {
         path: '403',
         element: <ErrorPage code={403} />,
