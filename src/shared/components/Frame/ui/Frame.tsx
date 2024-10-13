@@ -6,36 +6,11 @@ import { Container, Sidenav, Content, Nav, Sidebar } from 'rsuite'
 
 import { Brand } from '../../Brand'
 import { Header } from '../../Header'
-
 import { NavToggle } from './NavToggle'
+
+import { NAV } from '../constants'
+
 import './frame.less'
-
-export interface NavItemData {
-  eventKey: string
-  title: string
-  icon?: any
-  to?: string
-  target?: string
-  children?: NavItemData[]
-}
-
-const nav = [
-  {
-    id: 0,
-    link: '/keys',
-    label: 'Ключи',
-  },
-  {
-    id: 1,
-    link: '/referrals',
-    label: 'Рефералы',
-  },
-  {
-    id: 2,
-    link: '/purchases',
-    label: 'История покупок',
-  },
-]
 
 export const Frame: FC = () => {
   const [expand, setExpand] = useState(true)
@@ -57,7 +32,7 @@ export const Frame: FC = () => {
         <Sidenav appearance='subtle'>
           <Sidenav.Body>
             <Nav onSelect={navigate}>
-              {nav.map(({ id, link, label }) => (
+              {NAV.map(({ id, link, label }) => (
                 <Nav.Item key={id} eventKey={link}>
                   {label}
                 </Nav.Item>

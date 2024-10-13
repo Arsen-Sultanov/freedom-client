@@ -5,10 +5,5 @@ import { Outlet } from 'react-router-dom'
 interface UserCabinetLayoutProps {}
 
 export const UserCabinetLayout: FC<UserCabinetLayoutProps> = () => {
-  return (
-    <div>
-      UserCabinetLayout
-      <Outlet />
-    </div>
-  )
+  return <Outlet />
 }
