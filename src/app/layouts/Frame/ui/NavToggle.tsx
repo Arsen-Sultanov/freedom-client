@@ -2,13 +2,18 @@ import { ArrowLeftLine, ArrowRightLine } from '@rsuite/icons'
 import { Navbar, Nav } from 'rsuite'
 
 interface NavToggleProps {
-  expand?: boolean
-  onChange?: () => void
+  expand: boolean
+  onChange: () => void
+  className: string
 }
 
-export const NavToggle = ({ expand, onChange }: NavToggleProps) => {
+export const NavToggle = ({
+  expand,
+  onChange,
+  className,
+}: Partial<NavToggleProps>) => {
   return (
-    <Navbar appearance='subtle' className='nav-toggle'>
+    <Navbar appearance='subtle' className={className}>
       <Nav pullRight>
         <Nav.Item
           onClick={onChange}

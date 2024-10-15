@@ -1,9 +1,9 @@
-// import { AuthLayout, UserCabinetLayout } from '@layouts'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { ErrorPage } from '@shared/components/ErrorPage'
-import { Frame } from '@shared/components/Frame'
-import { UserCabinetLayout } from '@shared/components/UserCabinetLayout'
+
+import { Frame } from './layouts/Frame'
+import { UserCabinet } from './layouts/UserCabinet'
 
 // import { App } from './App'
 
@@ -37,33 +37,33 @@ import { UserCabinetLayout } from '@shared/components/UserCabinetLayout'
 
 const USER_CABINET_ROUTES = {
   path: '/*',
-  element: <UserCabinetLayout />,
+  element: <UserCabinet />,
   children: [
     {
       path: 'keys',
       async lazy() {
-        const { Keys } = await import('@pages/keys')
+        const { Keys } = await import('@pages/Keys')
         return { Component: Keys }
       },
     },
     {
       path: 'referrals',
       async lazy() {
-        const { Referrals } = await import('@pages/referrals')
+        const { Referrals } = await import('@pages/Referrals')
         return { Component: Referrals }
       },
     },
     {
       path: 'tariffs',
       async lazy() {
-        const { Referrals } = await import('@pages/referrals')
+        const { Referrals } = await import('@pages/Referrals')
         return { Component: Referrals }
       },
     },
     {
       path: 'purchases',
       async lazy() {
-        const { Purchases } = await import('@pages/purchases')
+        const { Purchases } = await import('@pages/Purchases')
         return { Component: Purchases }
       },
     },

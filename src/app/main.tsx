@@ -1,4 +1,4 @@
-import React from 'react'
+import { StrictMode } from 'react'
 
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
@@ -7,12 +7,12 @@ import ruRU from 'rsuite/locales/ru_RU'
 
 import { router } from './router'
 
-import './index.less'
+import 'rsuite/dist/rsuite.min.css'
 
 createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <StrictMode>
     <CustomProvider locale={ruRU}>
       <RouterProvider router={router} />
     </CustomProvider>
-  </React.StrictMode>
+  </StrictMode>
 )

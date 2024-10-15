@@ -1,9 +1,9 @@
-import type { SpeakerProps } from '../types'
-
 import { forwardRef } from 'react'
+
 import { Popover, List, Stack, Badge, Button } from 'rsuite'
 
 import { NOTIFICATION } from '../constants'
+import type { SpeakerProps } from '../types'
 
 export const NoticeSpeaker = forwardRef<HTMLDivElement, SpeakerProps>(
   ({ style, ...props }, ref) => {
