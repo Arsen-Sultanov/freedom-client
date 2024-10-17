@@ -1,5 +1,5 @@
-import { Button } from 'rsuite'
 import AddOutlineIcon from '@rsuite/icons/AddOutline'
+import { Button } from 'rsuite'
 
 import { Table } from '../Table'
 

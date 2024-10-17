@@ -1,4 +1,5 @@
 import { Table as RSTable } from 'rsuite'
+
 import { mockData, headers } from '../../constants'
 
 export const Table = () => {
