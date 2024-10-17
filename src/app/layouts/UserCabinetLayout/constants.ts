@@ -1,6 +1,6 @@
-import PeopleBranchIcon from '@rsuite/icons/PeopleBranch'
 import HistoryIcon from '@rsuite/icons/History'
 import ListIcon from '@rsuite/icons/List'
+import PeopleBranchIcon from '@rsuite/icons/PeopleBranch'
 
 export const NAV_ITEMS = [
   {

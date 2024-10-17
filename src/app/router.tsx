@@ -2,8 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { ErrorPage } from '@shared/components/ErrorPage'
 
-import { Frame } from './layouts/Frame'
-import { UserCabinet } from './layouts/UserCabinet'
+import { UserCabinetLayout } from './layouts/UserCabinetLayout'
 
 // import { App } from './App'
 
@@ -37,7 +36,7 @@ import { UserCabinet } from './layouts/UserCabinet'
 
 const USER_CABINET_ROUTES = {
   path: '/*',
-  element: <UserCabinet />,
+  element: <UserCabinetLayout />,
   children: [
     {
       path: 'keys',
@@ -73,11 +72,11 @@ const USER_CABINET_ROUTES = {
 const ROUTES = [
   {
     path: '/',
-    element: <Frame />,
+    // element: <Frame />,
     children: [
       // {
       //   index: true,
-      //   element: <Navigate to={true ? 'devices' : 'login'} replace />,
+      //   element: <Navigate to={true ? 'keys' : 'login'} replace />,
       // },
       // AUTH_ROUTES,
       USER_CABINET_ROUTES,

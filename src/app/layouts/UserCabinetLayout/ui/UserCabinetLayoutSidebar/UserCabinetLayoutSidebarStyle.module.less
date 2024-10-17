@@ -1,7 +1,9 @@
 @import 'rsuite/styles/index.less';
 
-.frame {
-  height: 100vh;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .sidenav {
@@ -10,16 +12,11 @@
   width: 100%;
 }
 
-.navItem svg {
+.icon {
   height: 1.3em !important;
   width: 1.3em !important;
 }
 
 .navToggle {
   border-top: 1px solid @B100;
-}
-
-.content {
-  padding: 0 10px;
-  background-color: #f5f8fa;
 }

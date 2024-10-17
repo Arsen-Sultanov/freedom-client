@@ -1,17 +1,17 @@
 import { ArrowLeftLine, ArrowRightLine } from '@rsuite/icons'
 import { Navbar, Nav } from 'rsuite'
 
-interface NavToggleProps {
+interface UserCabinetLayoutNavTogglePropsType {
   expand: boolean
   onChange: () => void
   className: string
 }
 
-export const NavToggle = ({
+export const UserCabinetLayoutNavToggle = ({
   expand,
   onChange,
   className,
-}: Partial<NavToggleProps>) => {
+}: Partial<UserCabinetLayoutNavTogglePropsType>) => {
   return (
     <Navbar appearance='subtle' className={className}>
       <Nav pullRight>

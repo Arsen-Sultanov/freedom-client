@@ -1,2 +1,2 @@
 yarn run lint
-yarn run git-branch-is -r '^(feature|bugfix|hotfix|release)\/\#-\d+$/'
+yarn run git-branch-is -r '^(feature|bugfix|hotfix|release)\/\#\d+$'
