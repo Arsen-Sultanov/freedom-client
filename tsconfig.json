@@ -21,17 +21,16 @@
       "@widgets/*": ["widgets/*"],
       "@features/*": ["features/*"],
       "@entities/*": ["entities/*"],
-      "@shared/*": ["shared/*"],
+      "@shared/*": ["shared/*"]
     },
-
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*", "vite.config.ts"],
   "exclude": ["node_modules", "dist"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

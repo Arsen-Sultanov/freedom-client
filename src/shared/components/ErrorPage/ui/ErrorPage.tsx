@@ -6,11 +6,15 @@ import { Heading, Text, IconButton, VStack } from 'rsuite'
 import { SERVER_ERROR_IMAGES, SERVER_ERROR_SUB_TITLE } from '../constants'
 import type { ErrorPagePropsType } from '../types'
 
-import './styles.less'
+import ErrorPageStyle from './ErrorPageStyle.module.less'
 
 export const ErrorPage: FC<ErrorPagePropsType> = ({ code }) => (
-  <VStack alignItems='center' justifyContent='center' className='error-page'>
-    <img src={SERVER_ERROR_IMAGES[code]} className='img' />
+  <VStack
+    alignItems='center'
+    justifyContent='center'
+    className={ErrorPageStyle.errorPage}
+  >
+    <img src={SERVER_ERROR_IMAGES[code]} className={ErrorPageStyle.img} />
     <VStack alignItems='center' spacing={12}>
       <Heading level={1}>{code}</Heading>
       <Text size='xxl' weight='extrabold'>
