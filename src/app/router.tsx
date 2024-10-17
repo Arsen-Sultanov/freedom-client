@@ -42,6 +42,7 @@ const USER_CABINET_ROUTES = {
       path: 'keys',
       async lazy() {
         const { Keys } = await import('@pages/Keys')
+
         return { Component: Keys }
       },
     },
