@@ -57,6 +57,7 @@ export default [
       ],
       'import/no-unresolved': 'error',
 
+      '@typescript-eslint/no-import-type-side-effects': 'error',
       '@typescript-eslint/no-unused-vars': ['error'],
       '@typescript-eslint/consistent-type-imports': [
         'error',
