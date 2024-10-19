@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
+import { AsyncImport } from '@shared/components/AsyncImport'
 import { ErrorPage } from '@shared/components/ErrorPage'
 
 import { UserCabinetLayout } from './layouts/UserCabinetLayout'
@@ -40,31 +41,19 @@ const USER_CABINET_ROUTES = {
   children: [
     {
       path: 'keys',
-      async lazy() {
-        const { Keys } = await import('@pages/Keys')
-        return { Component: Keys }
-      },
+      element: <AsyncImport importFn={() => import('@pages/Keys')} />,
     },
     {
       path: 'referrals',
-      async lazy() {
-        const { Referrals } = await import('@pages/Referrals')
-        return { Component: Referrals }
-      },
+      element: <AsyncImport importFn={() => import('@pages/Referrals')} />,
     },
     {
       path: 'tariffs',
-      async lazy() {
-        const { Referrals } = await import('@pages/Referrals')
-        return { Component: Referrals }
-      },
+      element: <AsyncImport importFn={() => import('@pages/Tariffs')} />,
     },
     {
       path: 'purchases',
-      async lazy() {
-        const { Purchases } = await import('@pages/Purchases')
-        return { Component: Purchases }
-      },
+      element: <AsyncImport importFn={() => import('@pages/Purchases')} />,
     },
   ],
 }
